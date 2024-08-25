@@ -1,30 +1,107 @@
+/* navbar.css */
 header {
-    background: #007BFF;
-    color: white;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  
-  .logo h1 {
-    margin: 0;
-  }
-  
+  background: #007BFF;
+  color: white;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo h1 {
+  margin: 0;
+}
+
+nav ul {
+  list-style: none;
+  margin-top: 10px;
+  padding: 0;
+  display: flex;
+}
+
+nav ul li {
+  margin-right: 20px;
+  position: relative; /* Add relative positioning for the dropdown */
+}
+
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-toggler {
+  display: none;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: auto; /* Align button to the right side of its container */
+}
+
+/* Dropdown Styles */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-button {
+  background: none;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: auto; /* Align button to the right side of its container */
+}
+
+.dropdown-menu {
+  display: none; /* Hide by default */
+  position: absolute;
+  top: 100%; /* Position below the button */
+  right: 0; /* Align to the right side */
+  background: #007BFF;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px 0;
+  z-index: 1000; /* Ensure it appears above other elements */
+}
+
+.dropdown-menu a {
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  display: block;
+}
+
+.dropdown-menu a:hover {
+  background: #0056b3;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Mobile view */
+@media (max-width: 768px) {
   nav ul {
-    list-style: none;
-    margin: 0;
-    padding: 0;
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* Position menu below the header */
+    right: 0;
+    background-color: #007BFF;
+    width: 100%;
+    padding: 1rem;
+    align-items: flex-end; /* Align items to the right */
+  }
+
+  nav ul.show {
     display: flex;
   }
-  
-  nav ul li {
-    margin-right: 20px;
+
+  .navbar-toggler {
+    display: block;
   }
-  
-  nav ul li a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
+}
